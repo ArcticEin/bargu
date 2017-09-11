@@ -33,7 +33,9 @@ type graphMeta struct {
 ///// ///// ///// ///// ///// ///// VERTEX ///// ///// ///// ///// ///// /////
 type vertex struct {
 	id    int
-	nType vertexType
+	vType vertexType
+	feats map[string]string
+	edges []int
 }
 
 type vertexType int
@@ -46,5 +48,16 @@ const (
 
 ///// ///// ///// ///// ///// ///// EDGE ///// ///// ///// ///// ///// /////
 type edge struct {
-	id int
+	id    int
+	eType edgeType
+	from  int
+	to    int
 }
+
+type edgeType int
+
+const (
+	follows edgeType = iota
+	livesIn
+	hasTitle
+)
